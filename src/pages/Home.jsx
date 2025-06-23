@@ -52,7 +52,7 @@ export default function Home() {
   <a href="/portfolio" className="button interactive-button">
     🚀 Explore My Work
   </a>
-  <a href="/resume.pdf" className="button interactive-button" download>
+  <a href="/Flores CV.pdf" className="button interactive-button" download>
     📄 Download Resume
   </a>
 </div>
