@@ -12,7 +12,7 @@ export default function About() {
           With a strong foundation in front-end and back-end technologies, I bring ideas to life through thoughtful design and clean, maintainable code. Whether it's collaborating on a team project or building something independently, I'm always excited to create something impactful.
         </p>
       </div>
-  <h2 class="tools-title">Skills</h2>
+      <h2 class="tools-title">Skills</h2>
       <div class="skills-grid">
         <div class="skill-item">
           <img src="/icons/laravel.svg" alt="Laravel Icon" />
@@ -54,36 +54,36 @@ export default function About() {
       </div>
 
       <h2 class="tools-title">Tools I Use</h2>
-<div class="tools-grid">
-  <div class="tool-card">
-    <img src="/icons/vscode.svg" alt="VS Code" />
-    <span>VS Code</span>
-  </div>
-  <div class="tool-card">
-    <img src="/icons/github.svg" alt="GitHub" />
-    <span>GitHub</span>
-  </div>
-  <div class="tool-card">
-    <img src="/icons/git.svg" alt="Git" />
-    <span>Git</span>
-  </div>
-  <div class="tool-card">
-    <img src="/icons/figma.svg" alt="Figma" />
-    <span>Figma</span>
-  </div>
-  <div class="tool-card">
-    <img src="/icons/postman.svg" alt="Postman" />
-    <span>Postman</span>
-  </div>
-  <div class="tool-card">
-    <img src="/icons/docker.svg" alt="Docker" />
-    <span>Docker</span>
-  </div>
-   <div class="tool-card">
-    <img src="/icons/aws.svg" alt="Aws" />
-    <span>Aws</span>
-  </div>
-</div>
+      <div class="tools-grid">
+        <div class="tool-card">
+          <img src="/icons/vscode.svg" alt="VS Code" />
+          <span>VS Code</span>
+        </div>
+        <div class="tool-card">
+          <img src="/icons/github.svg" alt="GitHub" />
+          <span>GitHub</span>
+        </div>
+        <div class="tool-card">
+          <img src="/icons/git.svg" alt="Git" />
+          <span>Git</span>
+        </div>
+        <div class="tool-card">
+          <img src="/icons/figma.svg" alt="Figma" />
+          <span>Figma</span>
+        </div>
+        <div class="tool-card">
+          <img src="/icons/postman.svg" alt="Postman" />
+          <span>Postman</span>
+        </div>
+        <div class="tool-card">
+          <img src="/icons/docker.svg" alt="Docker" />
+          <span>Docker</span>
+        </div>
+        <div class="tool-card">
+          <img src="/icons/aws.svg" alt="Aws" />
+          <span>Aws</span>
+        </div>
+      </div>
 
     </div>
   );
