@@ -1,4 +1,5 @@
 import "../pages/pages.css";
+
 export default function About() {
   return (
     <div className="page-container">
@@ -11,79 +12,44 @@ export default function About() {
           With a strong foundation in front-end and back-end technologies, I bring ideas to life through thoughtful design and clean, maintainable code. Whether it's collaborating on a team project or building something independently, I'm always excited to create something impactful.
         </p>
       </div>
-      <h2 class="tools-title">Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-item">
-          <img src="/icons/laravel.svg" alt="Laravel Icon" />
-          <span>Laravel</span>
-        </div>
-        <div class="skill-item">
-          <img src="/icons/php.svg" alt="PHP Icon" />
-          <span>PHP</span>
-        </div>
-        <div class="skill-item">
-          <img src="/icons/js.svg" alt="JavaScript Icon" />
-          <span>JavaScript</span>
-        </div>
-        <div class="skill-item">
-          <img src="/icons/html-5.svg" alt="HTML5 Icon" />
-          <span>HTML5</span>
-        </div>
-        <div class="skill-item">
-          <img src="/icons/css-3.svg" alt="CSS3 Icon" />
-          <span>CSS3</span>
-        </div>
-        <div class="skill-item">
-          <img src="/icons/react-svgrepo-com.svg" alt="React Icon" />
-          <span>React</span>
-        </div>
-        <div class="skill-item">
-          <img src="/icons/css-3.svg" alt="CSS3 Icon" />
-          <span>CSS3</span>
-        </div>
-        <div class="skill-item">
-          <img src="/icons/vue-vuejs.svg" alt="VUE ICon" />
-          <span>Vue</span>
-        </div>
-        <div class="skill-item">
-          <img src="/icons/bootstrap.svg" alt="Bootstrap Icon" />
-          <span>Bootstrap</span>
-        </div>
 
+      <h2 className="tools-title">Skills</h2>
+      <div className="skills-grid">
+        {[
+          ["laravel.svg", "Laravel"],
+          ["php.svg", "PHP"],
+          ["js.svg", "JavaScript"],
+          ["html-5.svg", "HTML5"],
+          ["css-3.svg", "CSS3"],
+          ["react-svgrepo-com.svg", "React"],
+          ["css-3.svg", "CSS3"],
+          ["vue-vuejs.svg", "Vue"],
+          ["bootstrap.svg", "Bootstrap"]
+        ].map(([icon, label]) => (
+          <div className="skill-item" key={label}>
+            <img src={`${process.env.PUBLIC_URL}/icons/${icon}`} alt={`${label} Icon`} />
+            <span>{label}</span>
+          </div>
+        ))}
       </div>
 
-      <h2 class="tools-title">Tools I Use</h2>
-      <div class="tools-grid">
-        <div class="tool-card">
-          <img src="/icons/vscode.svg" alt="VS Code" />
-          <span>VS Code</span>
-        </div>
-        <div class="tool-card">
-          <img src="/icons/github.svg" alt="GitHub" />
-          <span>GitHub</span>
-        </div>
-        <div class="tool-card">
-          <img src="/icons/git.svg" alt="Git" />
-          <span>Git</span>
-        </div>
-        <div class="tool-card">
-          <img src="/icons/figma.svg" alt="Figma" />
-          <span>Figma</span>
-        </div>
-        <div class="tool-card">
-          <img src="/icons/postman.svg" alt="Postman" />
-          <span>Postman</span>
-        </div>
-        <div class="tool-card">
-          <img src="/icons/docker.svg" alt="Docker" />
-          <span>Docker</span>
-        </div>
-        <div class="tool-card">
-          <img src="/icons/aws.svg" alt="Aws" />
-          <span>Aws</span>
-        </div>
+      <h2 className="tools-title">Tools I Use</h2>
+      <div className="tools-grid">
+        {[
+          ["vscode.svg", "VS Code"],
+          ["github.svg", "GitHub"],
+          ["git.svg", "Git"],
+          ["figma.svg", "Figma"],
+          ["postman.svg", "Postman"],
+          ["docker.svg", "Docker"],
+          ["aws.svg", "Aws"]
+        ].map(([icon, label]) => (
+          <div className="tool-card" key={label}>
+            <img src={`${process.env.PUBLIC_URL}/icons/${icon}`} alt={label} />
+            <span>{label}</span>
+          </div>
+        ))}
       </div>
-
     </div>
   );
 }
