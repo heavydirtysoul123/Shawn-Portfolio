@@ -1,5 +1,5 @@
 import "../pages/pages.css";
-
+import heroBg from '../assets/bg.png';
 export default function About() {
   return (
     <div className="page-container">

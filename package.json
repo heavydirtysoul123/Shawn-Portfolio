@@ -18,9 +18,14 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+      "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  
+  "homepage": "https://heavydirtysoul123.github.io/Shawn-Portfolio",
+
   "eslintConfig": {
     "extends": [
       "react-app",
