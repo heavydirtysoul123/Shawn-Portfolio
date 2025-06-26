@@ -5,8 +5,8 @@ export default function Portfolio() {
 <div className="page-container">
   <h1 className="page-title">Portfolio</h1>
   <ul className="portfolio-list">
-    <li><a href="#">Project 1</a></li>
-    <li><a href="#">Project 2</a></li>
+    <li><a href="https://github.com/heavydirtysoul123/Shawn-Portfolio">Project 1</a></li>
+   
   </ul>
 </div>
   );
