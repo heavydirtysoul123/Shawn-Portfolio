@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steven Shawn Flores D. | IT Programmer & Web Developer</title>
+<meta name="description" content="Portfolio of Steven Shawn Flores D. — an IT Programmer & Web Developer based in Sanjuan City, Philippines. Building reliable systems for airport ground support operations at PAGSS.">
+<meta name="keywords" content="Laravel Developer, PHP Developer, Web Developer, Philippines, PAGSS, Vue.js, CodeIgniter, Cavite State University">
+<meta name="author" content="Steven Shawn Flores D.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Steven Shawn Flores D. | IT Programmer & Web Developer">
+<meta property="og:description" content="From the ground up — building systems that keep operations flying. IT Programmer at PAGSS.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://heavydirtysoul123.github.io/Shawn-Portfolio">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Steven Shawn Flores D. | IT Programmer & Web Developer">
+<meta name="twitter:description" content="From the ground up — building systems that keep operations flying.">
+
+<!-- PWA -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="logo192.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0A0E1A">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Devicon (tech icons) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+<!-- Tailwind CSS Play CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+      },
+      colors: {
+        navy: { DEFAULT: '#0A0E1A', 800: '#060912', 600: '#111827', 400: '#1e293b' },
+        teal: { DEFAULT: '#00D4FF', 600: '#00A8CC', 400: '#33DDFF' },
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.6s ease-out forwards',
+        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+        'float': 'float 6s ease-in-out infinite',
+      },
+      keyframes: {
+        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+        fadeInUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+        pulseGlow: { '0%, 100%': { boxShadow: '0 0 20px rgba(0,212,255,0.1)' }, '50%': { boxShadow: '0 0 40px rgba(0,212,255,0.3)' } },
+        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+      },
+    },
+  },
+}
+</script>
+
+<style>
+/* ----- BASE ----- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', system-ui, sans-serif; background: #0A0E1A; color: #F0F4FF; overflow-x: hidden; }
+::selection { background: rgba(0,212,255,0.3); color: #fff; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0A0E1A; }
+::-webkit-scrollbar-thumb { background: #00D4FF; border-radius: 3px; }
+
+/* ----- GRID BACKGROUND (radar/runway inspired) ----- */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+}
+.grid-bg::after {
+  content: '';
+  position: fixed; top: 50%; left: 50%;
+  width: 600px; height: 600px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(0,212,255,0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ----- GLASS CARD ----- */
+.glass {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.glass:hover {
+  border-color: rgba(0,212,255,0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,212,255,0.08);
+}
+
+/* ----- GLOW BORDER ----- */
+.glow-border {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.glow-border::before {
+  content: '';
+  position: absolute; inset: -2px;
+  border-radius: 18px;
+  background: conic-gradient(from 0deg, transparent, rgba(0,212,255,0.3), transparent, rgba(0,212,255,0.3), transparent);
+  z-index: -1;
+}
+
+/* ----- HERO ----- */
+.hero-section { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; padding: 2rem; }
+
+/* ----- TYPEWRITER ----- */
+.typewriter-cursor::after {
+  content: '|';
+  animation: blink 0.75s step-end infinite;
+  color: #00D4FF;
+  font-weight: 300;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ----- BENTO GRID ----- */
+.bento-grid { display: grid; gap: 1rem; }
+.bento-card { padding: 1.5rem; border-radius: 16px; transition: all 0.4s ease; }
+.bento-card:hover { border-color: rgba(0,212,255,0.2); transform: translateY(-2px); }
+
+/* ----- SKILL ICON ----- */
+.skill-icon { font-size: 2rem; color: #00D4FF; }
+.skill-icon-lg { font-size: 2.5rem; }
+.skill-name { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; letter-spacing: 0.02em; }
+
+/* ----- TIMELINE ----- */
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #00D4FF, rgba(0,212,255,0.1), transparent);
+}
+.timeline-dot {
+  position: absolute; left: -6px; top: 4px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: #0A0E1A;
+  border: 2px solid #00D4FF;
+  box-shadow: 0 0 12px rgba(0,212,255,0.4);
+}
+.timeline-item:not(:last-child) { margin-bottom: 1.5rem; }
+
+/* ----- PROJECT CARD ----- */
+.project-card { position: relative; overflow: hidden; min-height: 300px; }
+
+/* ----- ANIMATIONS ON SCROLL ----- */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-30px); transition: all 0.7s ease; }
+.reveal-left.active { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(30px); transition: all 0.7s ease; }
+.reveal-right.active { opacity: 1; transform: translateX(0); }
+
+/* ----- FORM ----- */
+.form-input {
+  width: 100%; padding: 0.875rem 1rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  color: #F0F4FF; font-size: 0.95rem;
+  transition: all 0.3s ease;
+  outline: none;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+.form-input:focus { border-color: #00D4FF; box-shadow: 0 0 0 3px rgba(0,212,255,0.15); }
+.form-input::placeholder { color: rgba(255,255,255,0.3); }
+textarea.form-input { resize: vertical; min-height: 120px; }
+
+/* ----- BUTTON ----- */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 10px;
+  font-weight: 600; font-size: 0.95rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}
+.btn-primary {
+  background: #00D4FF; color: #0A0E1A;
+}
+.btn-primary:hover {
+  background: #33DDFF; box-shadow: 0 0 30px rgba(0,212,255,0.3);
+  transform: translateY(-2px);
+}
+.btn-outline {
+  background: transparent; color: #00D4FF;
+  border: 1px solid rgba(0,212,255,0.3);
+}
+.btn-outline:hover {
+  border-color: #00D4FF; background: rgba(0,212,255,0.08);
+  transform: translateY(-2px);
+}
+
+/* ----- SECTION LABEL ----- */
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: #00D4FF;
+  text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 0.75rem;
+}
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 24px; height: 1px;
+  background: #00D4FF;
+}
+
+/* ----- NAV ----- */
+.nav-blur { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.nav-link { position: relative; font-size: 0.9rem; font-weight: 500; color: rgba(255,255,255,0.7); transition: color 0.3s; cursor: pointer; background: none; border: none; font-family: inherit; }
+.nav-link:hover, .nav-link.active { color: #00D4FF; }
+
+/* ----- FEATURED BADGE ----- */
+.featured-badge {
+  position: absolute; top: 1rem; right: 1rem;
+  background: linear-gradient(135deg, #00D4FF, #00A8CC);
+  color: #0A0E1A;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.05em;
+  z-index: 2;
+}
+
+/* ----- STAT PILL ----- */
+.stat-pill {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 30px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.8);
+}
+.stat-pill .stat-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #00D4FF;
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* ----- TAG ----- */
+.tech-tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: rgba(0,212,255,0.08);
+  color: #00D4FF;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  border: 1px solid rgba(0,212,255,0.12);
+}
+.tech-tag-outline {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ----- PROFICIENCY BADGE ----- */
+.prof-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.prof-advanced { background: rgba(0,212,255,0.15); color: #00D4FF; border: 1px solid rgba(0,212,255,0.2); }
+.prof-intermediate { background: rgba(251,191,36,0.1); color: #FBBF24; border: 1px solid rgba(251,191,36,0.2); }
+.prof-familiar { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.08); }
+
+/* ----- BACK TO TOP ----- */
+.back-to-top {
+  position: fixed; bottom: 2rem; right: 2rem;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #00D4FF;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  opacity: 0; visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+}
+.back-to-top.visible { opacity: 1; visibility: visible; }
+.back-to-top:hover { background: #00D4FF; color: #0A0E1A; transform: translateY(-3px); box-shadow: 0 0 30px rgba(0,212,255,0.3); }
+
+/* ----- RESPONSIVE BENTO ----- */
+@media (min-width: 768px) {
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
+  .bento-span-2 { grid-column: span 2; }
+}
+@media (min-width: 1024px) {
+  .bento-grid { grid-template-columns: repeat(3, 1fr); }
+  .bento-span-2 { grid-column: span 2; }
+}
+
+/* ----- AVATAR ----- */
+.avatar-glow {
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(0,212,255,0.2), 0 0 40px rgba(0,212,255,0.1);
+}
+
+/* ----- FLOATING PARTICLES ----- */
+.particle {
+  position: fixed; border-radius: 50%; pointer-events: none;
+  background: rgba(0,212,255,0.15);
+  animation: floatParticle linear infinite;
+  z-index: 0;
+}
+@keyframes floatParticle {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+}
+
+/* ----- SOCIAL LINK ----- */
+.social-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #F0F4FF;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.social-link:hover {
+  background: #00D4FF; color: #0A0E1A;
+  border-color: #00D4FF;
+  transform: translateY(-3px);
+}
+
+/* ----- MOBILE MENU ----- */
+.mobile-menu {
+  position: fixed; inset: 0;
+  background: rgba(10,14,26,0.97);
+  backdrop-filter: blur(20px);
+  z-index: 40;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 2rem;
+  opacity: 0; visibility: hidden;
+  transition: all 0.4s ease;
+}
+.mobile-menu.open { opacity: 1; visibility: visible; }
+.mobile-menu button {
+  font-size: 1.5rem; color: rgba(255,255,255,0.8);
+  text-decoration: none; transition: color 0.3s;
+  background: none; border: none; font-family: inherit; cursor: pointer;
+}
+.mobile-menu button:hover { color: #00D4FF; }
+
+/* ----- UTILITY ----- */
+.container-wide { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+.section-py { padding: 5rem 0; }
+</style>
+</head>
+<body>
+
+<!-- Grid Background -->
+<div class="grid-bg"></div>
+
+<!-- Floating Particles -->
+<div id="particles"></div>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button onclick="navigateTo('hero')">Home</button>
+  <button onclick="navigateTo('about')">About</button>
+  <button onclick="navigateTo('skills')">Skills</button>
+  <button onclick="navigateTo('projects')">Projects</button>
+  <button onclick="navigateTo('experience')">Experience</button>
+  <button onclick="navigateTo('education')">Education</button>
+  <button onclick="navigateTo('contact')">Contact</button>
+  <button onclick="closeMobileMenu()" class="text-teal mt-8 font-mono text-sm">[ Close ]</button>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="fixed top-0 left-0 right-0 z-30 nav-blur" style="border-bottom:1px solid rgba(255,255,255,0.04);">
+  <div class="container-wide flex items-center justify-between h-16">
+    <button onclick="navigateTo('hero')" class="font-bold text-lg tracking-tight" style="background:none;border:none;color:#F0F4FF;cursor:pointer;font-family:inherit;">
+      <span class="text-teal">&lt;</span> SF <span class="text-teal">/&gt;</span>
+    </button>
+    <div class="hidden md:flex items-center gap-8">
+      <button onclick="navigateTo('hero')" class="nav-link">Home</button>
+      <button onclick="navigateTo('about')" class="nav-link">About</button>
+      <button onclick="navigateTo('skills')" class="nav-link">Skills</button>
+      <button onclick="navigateTo('projects')" class="nav-link">Projects</button>
+      <button onclick="navigateTo('experience')" class="nav-link">Experience</button>
+      <button onclick="navigateTo('contact')" class="nav-link">Contact</button>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="Flores%20CV.pdf" download class="btn btn-primary text-sm !py-2 !px-4 hidden sm:inline-flex">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Resume
+      </a>
+      <button onclick="toggleMobileMenu()" class="md:hidden text-white p-2" aria-label="Toggle menu">
+        <svg id="menuIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero" class="hero-section" style="padding-top:6rem;">
+  <div class="container-wide w-full flex flex-col lg:flex-row items-center justify-between gap-12 z-10">
+    <div class="flex-1 max-w-2xl">
+      <p class="font-mono text-teal text-sm mb-4 tracking-widest">
+        <span class="text-gray-500">//</span> hello.world
+      </p>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4">
+        Steven Shawn <span class="text-teal">Flores D.</span>
+      </h1>
+      <div class="text-xl md:text-2xl text-gray-300 mb-2 h-8" aria-live="polite">
+        <span id="typewriter" class="typewriter-cursor"></span>
+      </div>
+      <p class="text-base md:text-lg text-gray-400 mb-8 max-w-lg leading-relaxed">
+        From the ground up — building systems that keep operations flying.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <button onclick="navigateTo('projects')" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          View Work
+        </button>
+        <a href="Flores%20CV.pdf" download class="btn btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
+      </div>
+      <div class="flex gap-3 mt-8">
+        <a href="https://github.com/heavydirtysoul123" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/steven-shawn-flores-2460a3287" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="mailto:shawnflores9876@gmail.com" class="social-link" aria-label="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="flex-shrink-0 relative">
+      <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden avatar-glow animate-float">
+        <img src="shawn%20cv%20pic.jpg" alt="Steven Shawn Flores" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute -bottom-4 -right-4 glass px-4 py-2 rounded-full flex items-center gap-2 text-sm" style="border-color:rgba(0,212,255,0.2);">
+        <span class="w-2 h-2 rounded-full bg-green-400" style="box-shadow:0 0 8px rgba(74,222,128,0.5);"></span>
+        <span class="font-mono text-xs text-gray-300">Available</span>
+      </div>
+    </div>
+  </div>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce z-10" style="animation-duration:2s;">
+    <span class="font-mono text-xs text-gray-600">scroll</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal/50"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section-py relative z-10" style="padding-top:6rem;">
+  <div class="container-wide">
+    <div class="reveal">
+      <span class="section-label mb-4">About</span>
+      <h2 class="text-3xl md:text-4xl font-bold mb-2">The person <span class="text-teal">behind the code</span></h2>
+    </div>
+    <div class="flex flex-col lg:flex-row gap-12 mt-10 items-start">
+      <div class="flex-1 reveal-left">
+        <p class="text-gray-300 text-lg leading-relaxed">
+          <strong class="text-white">CS</strong> grad from <strong class="text-teal">Cavite State University</strong>, currently an <strong class="text-white">IT Programmer</strong> at <strong class="text-white">PAGSS</strong> building ground handling systems for airport operations. Full-stack experience across <strong>Laravel</strong>, <strong>Vue 3</strong>, <strong>Android</strong>, and <strong>Django</strong> — focused on clean, reliable software that solves real operational problems.
+        </p>
+        <div class="flex flex-wrap gap-3 mt-8">
+          <span class="stat-pill"><span class="stat-dot"></span> 3 Companies</span>
+          <span class="stat-pill"><span class="stat-dot"></span> 5+ Projects</span>
+          <span class="stat-pill"><span class="stat-dot"></span> BSCS Graduate</span>
+          <span class="stat-pill"><span class="stat-dot"></span> PHP 8.x</span>
+        </div>
+        <a href="Flores%20CV.pdf" download class="btn btn-outline mt-8">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Resume
+        </a>
+      </div>
+      <div class="flex-shrink-0 reveal-right">
+        <div class="glass p-1 w-72" style="border-radius:20px;">
+          <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-teal/10 to-navy-600">
+            <div class="aspect-square flex items-center justify-center">
+              <div class="text-center p-8">
+                <div class="text-7xl mb-4">👨‍💻</div>
+                <div class="font-mono text-sm text-teal">steven@pagss:~$ <span class="text-white">whoami</span></div>
+                <div class="font-mono text-xs text-gray-400 mt-2">IT Programmer · PAGSS</div>
+                <div class="font-mono text-xs text-gray-500 mt-1">BSCS · Cavite State University</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills" class="section-py relative z-10">
+  <div class="container-wide">
+    <div class="reveal">
+      <span class="section-label mb-4">Skills</span>
+      <h2 class="text-3xl md:text-4xl font-bold mb-2">Tech <span class="text-teal">stack & tools</span></h2>
+      <p class="text-gray-400 mt-2 max-w-lg">Technologies I've worked with across backend, frontend, mobile, and DevOps.</p>
+    </div>
+
+    <div class="bento-grid mt-10">
+      <!-- Back-end -->
+      <div class="bento-card glass reveal glow-border" style="grid-column:span 1;">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center text-teal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
+          </div>
+          <h3 class="font-bold text-lg">Back-end</h3>
+        </div>
+        <div class="flex flex-wrap gap-x-5 gap-y-4">
+          <div class="flex flex-col items-center gap-1">
+            <i class="devicon-laravel-plain skill-icon-lg" style="color:#F9322C;"></i>
+            <span class="skill-name text-gray-400">Laravel PHP</span>
+            <span class="prof-badge prof-advanced">Advanced</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <i class="devicon-codeigniter-plain skill-icon-lg" style="color:#EE4323;"></i>
+            <span class="skill-name text-gray-400">CodeIgniter 4</span>
+            <span class="prof-badge prof-familiar">Familiar</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <i class="devicon-python-plain skill-icon-lg" style="color:#3776AB;"></i>
+            <span class="skill-name text-gray-400">Python Django</span>
+            <span class="prof-badge prof-familiar">Familiar</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <i class="devicon-nodejs-plain skill-icon-lg" style="color:#339933;"></i>
+            <span class="skill-name text-gray-400">Node.js</span>
+            <span class="prof-badge prof-familiar">Familiar</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Front-end -->
+      <div class="bento-card glass reveal">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center text-teal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="font-bold text-lg">Front-end</h3>
+        </div>
+        <div class="flex flex-wrap gap-x-5 gap-y-4">
+          <div class="flex flex-col items-center gap-1">
+            <i class="devicon-vuejs-plain skill-icon-lg" style="color:#4FC08D;"></i>
+            <span class="skill-name text-gray-400">Vue.js 3</span>
+            <span class="prof-badge prof-intermediate">Intermediate</span>
+          </div>
+
+          <div class="flex flex-col items-center gap-1">
+            <i class="devicon-laravel-plain skill-icon-lg" style="color:#F9322C;"></i>
+            <span class="skill-name text-gray-400">Livewire</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <i class="devicon-tailwindcss-plain skill-icon-lg" style="color:#06B6D4;"></i>
+            <span class="skill-name text-gray-400">Tailwind CSS</span>
+            <span class="prof-badge prof-advanced">Advanced</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <i class="devicon-bootstrap-plain skill-icon-lg" style="color:#7952B3;"></i>
+            <span class="skill-name text-gray-400">Bootstrap</span>
+            <span class="prof-badge prof-advanced">Advanced</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <i class="devicon-javascript-plain skill-icon-lg" style="color:#F7DF1E;"></i>
+            <span class="skill-name text-gray-400">HTML/CSS/JS</span>
+            <span class="prof-badge prof-advanced">Advanced</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile -->
+      <div class="bento-card glass reveal">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center text-teal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <h3 class="font-bold text-lg">Mobile</h3>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <div class="flex flex-col items-center gap-1">
+            <i class="devicon-android-plain skill-icon-lg" style="color:#3DDC84;"></i>
+            <span class="skill-name text-gray-400">Android Java</span>
+            <span class="prof-badge prof-familiar">Familiar</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <i class="devicon-firebase-plain skill-icon-lg" style="color:#FFCA28;"></i>
+            <span class="skill-name text-gray-400">Firebase</span>
+            <span class="prof-badge prof-familiar">Basic</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Database -->
+      <div class="bento-card glass reveal">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center text-teal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <h3 class="font-bold text-lg">Database</h3>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <div class="flex flex-col items-center gap-1">
+            <i class="devicon-mysql-plain skill-icon-lg" style="color:#4479A1;"></i>
+            <span class="skill-name text-gray-400">MySQL</span>
+            <span class="prof-badge prof-intermediate">Intermediate</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <i class="devicon-firebase-plain skill-icon-lg" style="color:#FFCA28;"></i>
+            <span class="skill-name text-gray-400">Firebase</span>
+            <span class="prof-badge prof-familiar">Basic</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DevOps & Tools -->
+      <div class="bento-card glass reveal">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center text-teal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <h3 class="font-bold text-lg">DevOps & Tools</h3>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <div class="flex flex-col items-center gap-1">
+            <i class="devicon-git-plain skill-icon-lg" style="color:#F05032;"></i>
+            <span class="skill-name text-gray-400">Git</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <i class="devicon-github-original skill-icon-lg"></i>
+            <span class="skill-name text-gray-400">GitHub</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <i class="devicon-bitbucket-original skill-icon-lg" style="color:#2684FF;"></i>
+            <span class="skill-name text-gray-400">Bitbucket</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <i class="devicon-docker-plain skill-icon-lg" style="color:#2496ED;"></i>
+            <span class="skill-name text-gray-400">Docker/K8s</span>
+            <span class="prof-badge prof-familiar">Familiar</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-2xl text-teal">📋</span>
+            <span class="skill-name text-gray-400">AdminLTE</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-2xl text-teal">📋</span>
+            <span class="skill-name text-gray-400">Filament</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-2xl text-teal">📋</span>
+            <span class="skill-name text-gray-400">Jira</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI & Other (spans 2) -->
+      <div class="bento-card glass reveal bento-span-2">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center text-teal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 2-2 3-2 5h-4c0-2-2-3-2-5a4 4 0 0 1 4-4z"/><path d="M9 20v-2h6v2"/><path d="M12 18v-6"/></svg>
+          </div>
+          <h3 class="font-bold text-lg">AI & Other</h3>
+        </div>
+        <div class="flex flex-wrap gap-x-6 gap-y-3">
+          <span class="skill-name text-gray-300 flex items-center gap-2"><span class="text-teal">▹</span> AI Chatbots</span>
+          <span class="skill-name text-gray-300 flex items-center gap-2"><span class="text-teal">▹</span> AI Agents for Productivity</span>
+          <span class="skill-name text-gray-300 flex items-center gap-2"><span class="text-teal">▹</span> REST API Integration</span>
+          <span class="skill-name text-gray-300 flex items-center gap-2"><span class="text-teal">▹</span> Ajax</span>
+          <span class="skill-name text-gray-300 flex items-center gap-2"><span class="text-teal">▹</span> VILT Stack (Vue + Inertia + Laravel)</span>
+          <span class="skill-name text-gray-300 flex items-center gap-2"><span class="text-teal">▹</span> Business Process Analysis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="section-py relative z-10">
+  <div class="container-wide">
+    <div class="reveal">
+      <span class="section-label mb-4">Projects</span>
+      <h2 class="text-3xl md:text-4xl font-bold mb-2">Things I've <span class="text-teal">built</span></h2>
+      <p class="text-gray-400 mt-2 max-w-lg">Real-world applications from aviation operations to capstone projects.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mt-10">
+      <!-- Project 1: Electronic Signature System Featured -->
+      <div class="glass project-card reveal glow-border">
+        <span class="featured-badge">★ Featured</span>
+        <div class="p-6 h-full flex flex-col">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-3xl">✍️</span>
+            <div>
+              <h3 class="text-xl font-bold">Electronic Signature System</h3>
+              <p class="text-xs font-mono text-teal">PAGSS · Internal</p>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed flex-1">
+            Digital signature solution for airport ground handling operations at <strong>PAGSS</strong> — enabling paperless document workflows, secure e-signature capture, and audit trail tracking for internal administrative processes.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="tech-tag">Laravel 11</span>
+            <span class="tech-tag">PHP 8.x</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">Git</span>
+          </div>
+          <div class="mt-5">
+            <span class="text-xs text-gray-500 italic">Private · PAGSS Internal System</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: Passenger Service Flight Management -->
+      <div class="glass project-card reveal">
+        <div class="p-6 h-full flex flex-col">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-3xl">✈️</span>
+            <div>
+              <h3 class="text-xl font-bold">Passenger Service Flight Management</h3>
+              <p class="text-xs font-mono text-teal">PAGSS · Internal</p>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed flex-1">
+            Flight management system for tracking and managing passenger ground services at <strong>PAGSS</strong> — including flight schedules, service assignments, and real-time status updates for ground handling teams.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="tech-tag">Laravel 11</span>
+            <span class="tech-tag">PHP 8.x</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">Git</span>
+          </div>
+          <div class="mt-5">
+            <span class="text-xs text-gray-500 italic">Private · PAGSS Internal System</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: Gym Management -->
+      <div class="glass project-card reveal">
+        <div class="p-6 h-full flex flex-col">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-3xl">💪</span>
+            <div>
+              <h3 class="text-xl font-bold">Gym Management System</h3>
+              <p class="text-xs font-mono text-teal">Pound for Pound Fitness · Capstone / Thesis</p>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed flex-1">
+            Full-stack gym management system with custom workout hints and nutrition plan suggestions based on user body goals. Built as capstone thesis project. Features member management, session tracking, and goal-based recommendations.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Ajax</span>
+            <span class="tech-tag">Bootstrap</span>
+            <span class="tech-tag">AdminLTE</span>
+          </div>
+          <div class="flex gap-3 mt-5">
+            <a href="https://github.com/heavydirtysoul123" target="_blank" rel="noopener noreferrer" class="tech-tag !bg-white/5 !text-gray-300 hover:!text-teal transition-colors">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="inline mr-1"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              Source
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3: Task Monitoring System -->
+      <div class="glass project-card reveal">
+        <div class="p-6 h-full flex flex-col">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-3xl">🏗️</span>
+            <div>
+              <h3 class="text-xl font-bold">Task Monitoring System</h3>
+              <p class="text-xs font-mono text-teal">Melham Construction · OJT</p>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed flex-1">
+            Backend enhancement of a task monitoring web application for a construction corporation. Built on <strong>CodeIgniter 4</strong> — developed backend logic, contributed to frontend tasks, and improved data tracking workflows.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="tech-tag">CodeIgniter 4</span>
+            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+          <div class="mt-5">
+            <span class="text-xs text-gray-500 italic">OJT Project · Melham Construction</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4: Android Apps -->
+      <div class="glass project-card reveal">
+        <div class="p-6 h-full flex flex-col">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-3xl">📱</span>
+            <div>
+              <h3 class="text-xl font-bold">Android Mobile Apps</h3>
+              <p class="text-xs font-mono text-teal">Mad Gaming Development</p>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed flex-1">
+            Multiple Android applications built in <strong>Java</strong> and deployed across <strong>5 app stores</strong> — Google Play, Amazon Appstore, Samsung Galaxy Store, and more. Integrated third-party APIs, in-app analytics, and Firebase for hosting backend landing pages.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="tech-tag">Android Java</span>
+            <span class="tech-tag">Firebase</span>
+            <span class="tech-tag">Google Play</span>
+            <span class="tech-tag">REST APIs</span>
+            <span class="tech-tag">HTML/CSS/JS</span>
+          </div>
+          <div class="flex gap-3 mt-5">
+            <a href="https://github.com/heavydirtysoul123" target="_blank" rel="noopener noreferrer" class="tech-tag !bg-white/5 !text-gray-300 hover:!text-teal transition-colors">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="inline mr-1"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              Source
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section id="experience" class="section-py relative z-10">
+  <div class="container-wide">
+    <div class="reveal">
+      <span class="section-label mb-4">Experience</span>
+      <h2 class="text-3xl md:text-4xl font-bold mb-2">Where I've <span class="text-teal">worked</span></h2>
+    </div>
+
+    <div class="mt-10 max-w-3xl reveal-left">
+      <div class="timeline">
+        <!-- 1. PAGSS -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="glass p-6 ml-6">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+              <div>
+                <h3 class="text-lg font-bold">IT Programmer / Web Developer</h3>
+                <p class="text-teal font-mono text-sm">PAGSS — Philippine Airport Ground Support Solutions</p>
+              </div>
+              <span class="text-xs font-mono text-gray-500 bg-white/5 px-3 py-1 rounded-full whitespace-nowrap">Oct 2025 — Present</span>
+            </div>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li class="flex gap-2"><span class="text-teal mt-1 shrink-0">▹</span><span>Cater ground handling solutions — from tracking equipment inventories to building back-office admin internal systems</span></li>
+              <li class="flex gap-2"><span class="text-teal mt-1 shrink-0">▹</span><span>Developed an Electronic Signature System for digitizing document workflows across airport operations</span></li>
+              <li class="flex gap-2"><span class="text-teal mt-1 shrink-0">▹</span><span>Built a Passenger Service Flight Management system for tracking and managing flight-related ground services</span></li>
+              <li class="flex gap-2"><span class="text-teal mt-1 shrink-0">▹</span><span>Automated reporting features, analyzed workflows, and identified automation opportunities</span></li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-white/5">
+              <span class="tech-tag">Laravel 11</span>
+              <span class="tech-tag">PHP 8.x</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Git</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Valenin -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="glass p-6 ml-6">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+              <div>
+                <h3 class="text-lg font-bold">Web Developer Intern</h3>
+                <p class="text-teal font-mono text-sm">Valenin IT Solution and Services</p>
+              </div>
+              <span class="text-xs font-mono text-gray-500 bg-white/5 px-3 py-1 rounded-full whitespace-nowrap">Sep 2024 — Jan 2025</span>
+            </div>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li class="flex gap-2"><span class="text-teal mt-1 shrink-0">▹</span><span>Built application modules using Laravel 11 + Vue 3 (VILT Stack — Vue, Inertia, Laravel)</span></li>
+              <li class="flex gap-2"><span class="text-teal mt-1 shrink-0">▹</span><span>Managed repositories on Git, Bitbucket, and GitHub</span></li>
+              <li class="flex gap-2"><span class="text-teal mt-1 shrink-0">▹</span><span>Used Jira for project tracking and ticket management</span></li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-white/5">
+              <span class="tech-tag">Laravel 11</span>
+              <span class="tech-tag">Vue.js 3</span>
+              <span class="tech-tag">Livewire</span>
+              <span class="tech-tag">Inertia</span>
+              <span class="tech-tag">Tailwind</span>
+              <span class="tech-tag">Bitbucket</span>
+              <span class="tech-tag">Jira</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Mad Gaming -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="glass p-6 ml-6">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+              <div>
+                <h3 class="text-lg font-bold">Junior Mobile Developer</h3>
+                <p class="text-teal font-mono text-sm">Mad Gaming Development</p>
+              </div>
+              <span class="text-xs font-mono text-gray-500 bg-white/5 px-3 py-1 rounded-full whitespace-nowrap">Nov 2023 — Jun 2024</span>
+            </div>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li class="flex gap-2"><span class="text-teal mt-1 shrink-0">▹</span><span>Built Android applications in Java and deployed to Google Play, Amazon Appstore, Samsung Galaxy Store, and Xiaomi GetApps</span></li>
+              <li class="flex gap-2"><span class="text-teal mt-1 shrink-0">▹</span><span>Integrated third-party APIs and in-app analytics</span></li>
+              <li class="flex gap-2"><span class="text-teal mt-1 shrink-0">▹</span><span>Built landing pages with HTML, CSS, JS on Firebase hosting</span></li>
+              <li class="flex gap-2"><span class="text-teal mt-1 shrink-0">▹</span><span>Created UI/UX assets: game images, ad banners, and project visuals</span></li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-white/5">
+              <span class="tech-tag">Android Java</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">HTML/CSS/JS</span>
+              <span class="tech-tag">Photoshop</span>
+              <span class="tech-tag">Google Play</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Dev X Freelance -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="glass p-6 ml-6">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+              <div>
+                <h3 class="text-lg font-bold">Freelance Developer / Business Analyst</h3>
+                <p class="text-teal font-mono text-sm">Dev X (Freelance)</p>
+              </div>
+              <span class="text-xs font-mono text-gray-500 bg-white/5 px-3 py-1 rounded-full whitespace-nowrap">Freelance</span>
+            </div>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li class="flex gap-2"><span class="text-teal mt-1 shrink-0">▹</span><span>Gathered client requirements and performed business process analysis</span></li>
+              <li class="flex gap-2"><span class="text-teal mt-1 shrink-0">▹</span><span>Delivered SaaS applications using Python Django</span></li>
+              <li class="flex gap-2"><span class="text-teal mt-1 shrink-0">▹</span><span>Acted as bridge between business users and the development team</span></li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-white/5">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">Business Analysis</span>
+              <span class="tech-tag">Requirements Gathering</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Melham OJT -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="glass p-6 ml-6">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+              <div>
+                <h3 class="text-lg font-bold">Backend Developer (OJT)</h3>
+                <p class="text-teal font-mono text-sm">Melham Construction Corporation</p>
+              </div>
+              <span class="text-xs font-mono text-gray-500 bg-white/5 px-3 py-1 rounded-full whitespace-nowrap">OJT</span>
+            </div>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li class="flex gap-2"><span class="text-teal mt-1 shrink-0">▹</span><span>Continued development of a Task Monitoring System built on CodeIgniter 4</span></li>
+              <li class="flex gap-2"><span class="text-teal mt-1 shrink-0">▹</span><span>Developed backend logic and contributed to frontend tasks</span></li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-white/5">
+              <span class="tech-tag">CodeIgniter 4</span>
+              <span class="tech-tag">PHP</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EDUCATION ===== -->
+<section id="education" class="section-py relative z-10" style="padding-top:0;">
+  <div class="container-wide">
+    <div class="reveal">
+      <span class="section-label mb-4">Education</span>
+      <h2 class="text-3xl md:text-4xl font-bold mb-2">Where I <span class="text-teal">learned</span></h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mt-10">
+      <div class="reveal-left">
+        <div class="glass p-6 flex gap-5 items-start h-full">
+          <div class="w-14 h-14 rounded-xl bg-teal/10 flex items-center justify-center text-2xl flex-shrink-0">🎓</div>
+          <div>
+            <h3 class="text-lg font-bold">BS Computer Science</h3>
+            <p class="text-teal font-mono text-sm">Cavite State University — Bacoor Campus</p>
+            <p class="text-gray-500 text-xs mt-1">2019 — 2023</p>
+            <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+              Graduated with a Bachelor of Science in Computer Science. Built foundational expertise in software development, algorithms, database systems, and web technologies.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="glass p-6 flex gap-5 items-start h-full">
+          <div class="w-14 h-14 rounded-xl bg-teal/10 flex items-center justify-center text-2xl flex-shrink-0">🏫</div>
+          <div>
+            <h3 class="text-lg font-bold">ICT Strand (Senior High School)</h3>
+            <p class="text-teal font-mono text-sm">Saint Jude College</p>
+            <p class="text-gray-500 text-xs mt-1">2017 — 2019</p>
+            <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+              Completed the Information and Communications Technology strand, building early skills in programming, computer systems, and digital literacy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="section-py relative z-10">
+  <div class="container-wide">
+    <div class="reveal">
+      <span class="section-label mb-4">Contact</span>
+      <h2 class="text-3xl md:text-4xl font-bold mb-2">Let's <span class="text-teal">connect</span></h2>
+      <p class="text-gray-400 mt-2 max-w-lg">Have a project, opportunity, or just want to say hi? Drop me a message.</p>
+    </div>
+
+    <div class="flex flex-col lg:flex-row gap-12 mt-10">
+      <div class="flex-1 reveal-left">
+        <form id="contactForm" class="space-y-5">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-300 mb-1.5 font-mono">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your name" class="form-input">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-300 mb-1.5 font-mono">Email</label>
+            <input type="email" id="email" name="email" required placeholder="your@email.com" class="form-input">
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-300 mb-1.5 font-mono">Message</label>
+            <textarea id="message" name="message" required placeholder="Tell me about your project, opportunity, or just say hello..." class="form-input"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-full justify-center" id="submitBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
+          <p id="formStatus" class="text-sm text-center font-mono hidden"></p>
+        </form>
+      </div>
+      <div class="lg:w-80 reveal-right">
+        <div class="glass p-6 space-y-6">
+          <h3 class="font-bold text-lg">Other ways to reach me</h3>
+          <div class="space-y-4">
+            <a href="https://github.com/heavydirtysoul123" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-gray-400 hover:text-teal transition-colors">
+              <div class="social-link !w-10 !h-10">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </div>
+              <span class="font-mono text-sm">github.com/heavydirtysoul123</span>
+            </a>
+            <a href="https://linkedin.com/in/steven-shawn-flores-2460a3287" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-gray-400 hover:text-teal transition-colors">
+              <div class="social-link !w-10 !h-10">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </div>
+              <span class="font-mono text-sm">linkedin.com/in/steven-shawn-flores</span>
+            </a>
+            <a href="mailto:shawnflores9876@gmail.com" class="flex items-center gap-3 text-gray-400 hover:text-teal transition-colors">
+              <div class="social-link !w-10 !h-10">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <span class="font-mono text-sm">shawnflores9876@gmail.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="relative z-10 border-t border-white/5 py-8 mt-8">
+  <div class="container-wide flex flex-col md:flex-row items-center justify-between gap-4">
+    <p class="text-gray-500 text-sm text-center md:text-left">
+      &copy; <span id="year"></span> Steven Shawn Flores D. · Built with Laravel mindset, deployed on GitHub Pages.
+    </p>
+    <div class="flex items-center gap-4">
+      <a href="https://github.com/heavydirtysoul123" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-teal transition-colors" aria-label="GitHub">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/steven-shawn-flores-2460a3287" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-teal transition-colors" aria-label="LinkedIn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="mailto:shawnflores9876@gmail.com" class="text-gray-500 hover:text-teal transition-colors" aria-label="Email">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+      <button onclick="navigateTo('hero')" class="btn-outline !py-1.5 !px-3 text-xs font-mono" aria-label="Back to top">↑ Top</button>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// ----- Typewriter -----
+const words = ['IT Programmer', 'Laravel Developer', 'Web Developer', 'Airport Systems Builder'];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typewriterEl = document.getElementById('typewriter');
+
+function typeEffect() {
+  const currentWord = words[wordIndex];
+  if (isDeleting) {
+    typewriterEl.textContent = currentWord.substring(0, charIndex - 1);
+    charIndex--;
+  } else {
+    typewriterEl.textContent = currentWord.substring(0, charIndex + 1);
+    charIndex++;
+  }
+  let delay = isDeleting ? 40 : 80;
+  if (!isDeleting && charIndex === currentWord.length) { delay = 2000; isDeleting = true; }
+  else if (isDeleting && charIndex === 0) { isDeleting = false; wordIndex = (wordIndex + 1) % words.length; delay = 500; }
+  setTimeout(typeEffect, delay);
+}
+typeEffect();
+
+// ----- Navigation -----
+function navigateTo(sectionId) {
+  const el = document.getElementById(sectionId);
+  if (el) {
+    const top = el.getBoundingClientRect().top + window.pageYOffset - 80;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+  closeMobileMenu();
+}
+
+function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+// ----- Scroll Reveal -----
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('active'); revealObserver.unobserve(entry.target); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
+
+// ----- Back to Top -----
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  backToTop.classList.toggle('visible', window.pageYOffset > 400);
+});
+backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// ----- Active Nav Link -----
+const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'education', 'contact'];
+const navLinks = document.querySelectorAll('.nav-link');
+window.addEventListener('scroll', () => {
+  let current = 'hero';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top <= 200) current = id;
+  });
+  navLinks.forEach(link => {
+    const text = link.textContent.toLowerCase();
+    link.classList.toggle('active', text === current || (current === 'hero' && text === 'home'));
+  });
+});
+
+// ----- Floating Particles -----
+function createParticles() {
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 15; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 3 + 1;
+    p.style.width = size + 'px'; p.style.height = size + 'px';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (Math.random() * 20 + 15) + 's';
+    p.style.animationDelay = (Math.random() * 20) + 's';
+    p.style.opacity = Math.random() * 0.5 + 0.1;
+    container.appendChild(p);
+  }
+}
+createParticles();
+
+// ----- Form (Formspree) -----
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const status = document.getElementById('formStatus');
+  const formData = new FormData(this);
+  btn.disabled = true;
+  btn.innerHTML = 'Sending...';
+  status.className = 'text-sm text-center font-mono text-teal';
+  status.textContent = 'Sending message...';
+  status.classList.remove('hidden');
+  try {
+    const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      method: 'POST', body: formData, headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      status.className = 'text-sm text-center font-mono text-green-400';
+      status.textContent = "Message sent! I'll get back to you soon.";
+      this.reset();
+    } else throw new Error('Failed');
+  } catch {
+    status.className = 'text-sm text-center font-mono text-red-400';
+    status.textContent = 'Failed to send. Please email me directly.';
+  }
+  btn.disabled = false;
+  btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message`;
+});
+
+// ----- Year -----
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// ----- Keyboard -----
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
+</script>
+</body>
+</html>
