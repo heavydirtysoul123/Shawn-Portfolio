@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://heavydirtysoul123.github.io/Shawn-Portfolio/sitemap.xml
